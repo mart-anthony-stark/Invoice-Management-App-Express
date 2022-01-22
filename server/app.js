@@ -13,6 +13,7 @@ app.get("/", isAuth, (req, res) => {
   res.send(req.user);
 });
 app.use("/auth", require("./routes/auth.route"));
+app.use("/clients", require("./routes/client.route"));
 
 app.listen(port, (e) => {
   if (e) return console.log(e);
