@@ -1,4 +1,5 @@
 const Client = require("../model/Client");
+const Invoice = require("../model/Invoice");
 
 const getClients = async (req, res) => {
   try {
@@ -56,11 +57,25 @@ const updateClient = async (req, res) => {
 
 const deleteClient = async (req, res) => {
   try {
-    await Client.findOneAndDelete({ _id: req.params.id });
-    res.status(200).json({ success: true });
+    Client.findOneAndRemove({ _id: req.params.id, user_id: req.user._id }).then(
+      (removedDoc) => {
+        res.status(200).json(removedDoc);
+
+        deleteInvoicesFromClient(removedDoc._id);
+      }
+    );
   } catch (error) {
     res.status(500).json(error);
   }
+};
+
+// Helper
+let deleteInvoicesFromClient = (client_id) => {
+  Invoice.deleteMany({ client_id })
+    .then(() => {
+      console.log(`Invoices deleted from client`);
+    })
+    .catch((e) => console.log(e));
 };
 
 module.exports = {
