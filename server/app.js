@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(exress.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.listen(port, (e) => {
