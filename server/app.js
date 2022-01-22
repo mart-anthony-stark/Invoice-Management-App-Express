@@ -14,6 +14,7 @@ app.get("/", isAuth, (req, res) => {
 });
 app.use("/auth", require("./routes/auth.route"));
 app.use("/clients", require("./routes/client.route"));
+app.use("/invoices", require("./routes/invoice.route"));
 
 app.listen(port, (e) => {
   if (e) return console.log(e);
