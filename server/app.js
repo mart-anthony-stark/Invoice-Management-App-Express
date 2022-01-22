@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const { isAuth } = require("./utils/jwt");
 
 const port = process.env.PORT || 3000;
 require("dotenv").config({});
@@ -8,6 +9,9 @@ require("dotenv").config({});
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get("/", isAuth, (req, res) => {
+  res.send(req.user);
+});
 app.use("/auth", require("./routes/auth.route"));
 
 app.listen(port, (e) => {
