@@ -7,7 +7,8 @@ const invoiceSchema = new mongoose.Schema({
   due: { type: Date },
   payment_terms: { type: Number },
   product_desc: { type: String },
-  Items: { type: Array },
-});
+  items: { type: Array },
+  total: { type: Number },
+}, {timestamps: true});
 
 module.exports = mongoose.model("Invoice", invoiceSchema);
