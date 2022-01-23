@@ -2,7 +2,12 @@ const Invoice = require("../model/Invoice");
 
 const getInvoices = async (req, res) => {
   try {
-    const invoices = await Invoice.find({ user_id: req.user._id });
+    const invoices = req.query.client
+      ? await Invoice.find({
+          user_id: req.user._id,
+          client_id: req.query.client,
+        })
+      : await Invoice.find({ user_id: req.user._id });
     res.json(invoices);
   } catch (error) {
     console.log(error);
