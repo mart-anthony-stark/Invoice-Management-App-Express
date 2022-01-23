@@ -24,11 +24,19 @@ const getInvoiceById = async (req, res) => {
 
 const createInvoice = async (req, res) => {
   try {
-    const { client_id, start_date, due, payment_terms, product_desc, items } =
-      req.body;
+    const {
+      client_id,
+      status,
+      start_date,
+      due,
+      payment_terms,
+      product_desc,
+      items,
+    } = req.body;
     const invoice = await new Invoice({
       user_id: req.user._id,
       client_id,
+      status,
       start_date,
       due,
       payment_terms,
