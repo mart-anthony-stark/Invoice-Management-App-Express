@@ -8,7 +8,7 @@
   <Sidebar />
   <section class="main">
     <Router>
-      <Route path="/" component={Home} />
+      <Route path="dashboard" component={Home} />
     </Router>
   </section>
 </main>
