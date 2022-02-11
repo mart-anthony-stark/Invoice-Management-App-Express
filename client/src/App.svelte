@@ -6,11 +6,7 @@
 
 <main>
   <Sidebar />
-  <section class="main">
-    <Router>
-      <Route path="dashboard" component={Home} />
-    </Router>
-  </section>
+  <section class="main"></section>
 </main>
 
 <style>
