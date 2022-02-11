@@ -20,6 +20,6 @@
   "dependencies": {
     "sirv-cli": "^2.0.0",
     "svelte-icons": "^2.1.0",
-    "svelte-routing": "^1.6.0"
+    "svelte-spa-router": "^3.2.0"
   }
 }
