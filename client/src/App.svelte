@@ -1,17 +1,14 @@
 <script>
   import Sidebar from "./components/Sidebar.svelte";
   import Router from "svelte-spa-router";
-  import Home from "./pages/Home.svelte";
+  import { routes } from "./routes";
+  import { SidebarStore } from "./stores";
 </script>
 
 <main>
   <Sidebar />
-  <section class="main">
-    <Router
-      routes={{
-        "/": Home,
-      }}
-    />
+  <section class={`main ${$SidebarStore.isOpen && "open"}`}>
+    <Router {routes} />
   </section>
 </main>
 
@@ -21,6 +18,10 @@
     background: var(--c-pri);
   }
   section.main {
-    margin-left: 300px;
+    margin-left: 165px;
+    transition: 1s ease-in-out;
+  }
+  section.main.open {
+    margin-left: 350px;
   }
 </style>
