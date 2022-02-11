@@ -1,5 +1,6 @@
 <script>
   import FaArrowRight from "svelte-icons/fa/FaArrowRight.svelte";
+  import { fade } from "svelte/transition";
 
   let isOpen = true;
 
@@ -12,7 +13,9 @@
   <div on:click={handleToggle} class="toggle">
     <FaArrowRight />
   </div>
-  <h2 class="logo">Invoice Management App</h2>
+  {#if isOpen}
+    <h2 out:fade class="logo">Invoice Management App</h2>
+  {/if}
 </div>
 
 <style>
