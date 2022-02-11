@@ -2,4 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  --c-pri: #e3e9f5;
+  --c-complementary: #ffffff;
+  --c-text: #757575;
+  --c-accent: #0047ff;
 }
