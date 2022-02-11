@@ -1,16 +1,24 @@
 <script>
   import Sidebar from "./components/Sidebar.svelte";
   import { Router, Link, Route } from "svelte-routing";
+  import Home from "./pages/Home.svelte";
 </script>
 
 <main>
-	<Sidebar />
-	
+  <Sidebar />
+  <section class="main">
+    <Router>
+      <Route path="/" component={Home} />
+    </Router>
+  </section>
 </main>
 
 <style>
   main {
     min-height: 100vh;
     background: var(--c-pri);
+  }
+  section.main {
+    margin-left: 300px;
   }
 </style>
