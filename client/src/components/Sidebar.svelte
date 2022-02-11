@@ -13,9 +13,14 @@
   <div on:click={handleToggle} class="toggle">
     <FaArrowRight />
   </div>
+
   {#if isOpen}
     <h2 transition:fade class="logo">Invoice Management App</h2>
   {/if}
+
+  <div class="menu-list">
+      
+  </div>
 </div>
 
 <style>
