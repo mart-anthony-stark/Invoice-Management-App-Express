@@ -1,7 +1,7 @@
 <script></script>
 
 <div class="sidebar">
-  <h1 class="logo">Invoice Management App</h1>
+  <h2 class="logo">Invoice Management App</h2>
 </div>
 
 <style>
@@ -13,5 +13,9 @@
     width: 300px;
     background: var(--c-complementary);
     padding: 20px;
+  }
+  .sidebar .logo {
+    color: var(--c-accent);
+    text-align: center;
   }
 </style>
