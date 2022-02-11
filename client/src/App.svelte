@@ -13,7 +13,7 @@
 <main>
   <Sidebar />
   <section class={`main ${$SidebarStore.isOpen && "open"}`}>
-    <a href="/dashboard">Next</a>
+    <a href="/dashboard" use:link>Next</a>
     <Router {routes} />
   </section>
 </main>
