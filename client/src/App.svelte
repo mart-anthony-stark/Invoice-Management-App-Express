@@ -1,9 +1,11 @@
 <script>
   import Sidebar from "./components/Sidebar.svelte";
+  import { Router, Link, Route } from "svelte-routing";
 </script>
 
 <main>
-  <Sidebar />
+	<Sidebar />
+	
 </main>
 
 <style>
