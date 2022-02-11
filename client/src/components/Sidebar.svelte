@@ -1,6 +1,11 @@
-<script></script>
+<script>
+  import FaArrowRight from "svelte-icons/fa/FaArrowRight.svelte";
+
+  let isOpen = false;
+</script>
 
 <div class="sidebar">
+  <div class={`toggle ${!isOpen && "open"}`}><FaArrowRight /></div>
   <h2 class="logo">Invoice Management App</h2>
 </div>
 
@@ -17,5 +22,20 @@
   .sidebar .logo {
     color: var(--c-accent);
     text-align: center;
+  }
+  .sidebar .toggle {
+    position: absolute;
+    right: -40px;
+    top: 20px;
+    height: 40px;
+    background: var(--c-accent);
+    color: var(--c-complementary);
+    padding: 5px;
+    transform: rotate(180deg);
+    cursor: pointer;
+    transition: 0.5s ease;
+  }
+  .sidebar .toggle.open {
+    transform: rotate(0deg);
   }
 </style>
