@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "sirv-cli": "^2.0.0",
-    "svelte-icons": "^2.1.0"
+    "svelte-icons": "^2.1.0",
+    "svelte-routing": "^1.6.0"
   }
 }
