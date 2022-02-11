@@ -1,12 +1,18 @@
 <script>
   import Sidebar from "./components/Sidebar.svelte";
-  import { Router, Link, Route } from "svelte-routing";
+  import Router from "svelte-spa-router";
   import Home from "./pages/Home.svelte";
 </script>
 
 <main>
   <Sidebar />
-  <section class="main"></section>
+  <section class="main">
+    <Router
+      routes={{
+        "/": Home,
+      }}
+    />
+  </section>
 </main>
 
 <style>
