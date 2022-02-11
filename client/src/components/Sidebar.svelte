@@ -8,8 +8,8 @@
   };
 </script>
 
-<div class="sidebar">
-  <div on:click={handleToggle} class={`toggle ${!isOpen && "open"}`}>
+<div class={`sidebar ${!isOpen && "open"}`}>
+  <div on:click={handleToggle} class="toggle">
     <FaArrowRight />
   </div>
   <h2 class="logo">Invoice Management App</h2>
@@ -43,7 +43,10 @@
     transition: 0.5s ease;
     border-radius: 5px 0 0 5px;
   }
-  .sidebar .toggle.open {
+  .sidebar.open {
+    transform: translateX(-200px);
+  }
+  .sidebar.open .toggle {
     transform: rotate(0deg);
     border-radius: 0 5px 5px 0;
   }
