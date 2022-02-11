@@ -1,15 +1,18 @@
 <script>
   import FaArrowRight from "svelte-icons/fa/FaArrowRight.svelte";
   import { fade } from "svelte/transition";
+  import { SidebarStore } from "../stores";
 
-  let isOpen = true;
+  $: isOpen = $SidebarStore.isOpen;
 
   const handleToggle = () => {
-    isOpen = !isOpen;
+    SidebarStore.update((current) => {
+      return { isOpen: !current.isOpen };
+    });
   };
 </script>
 
-<div class={`sidebar ${!isOpen && "open"}`}>
+<div class={`sidebar ${isOpen && "open"}`}>
   <div on:click={handleToggle} class="toggle">
     <FaArrowRight />
   </div>
@@ -18,9 +21,7 @@
     <h2 transition:fade class="logo">Invoice Management App</h2>
   {/if}
 
-  <div class="menu-list">
-      
-  </div>
+  <div class="menu-list" />
 </div>
 
 <style>
@@ -33,6 +34,7 @@
     background: var(--c-complementary);
     padding: 20px;
     transition: 0.5s ease-in-out;
+    transform: translateX(-200px);
   }
   .sidebar .logo {
     color: var(--c-accent);
@@ -46,16 +48,16 @@
     background: var(--c-accent);
     color: var(--c-complementary);
     padding: 5px;
-    transform: rotate(180deg);
     cursor: pointer;
+    transform: rotate(0deg);
     transition: 0.5s ease;
-    border-radius: 5px 0 0 5px;
+    border-radius: 0 5px 5px 0;
   }
   .sidebar.open {
-    transform: translateX(-200px);
+    transform: translateX(0px);
   }
   .sidebar.open .toggle {
-    transform: rotate(0deg);
-    border-radius: 0 5px 5px 0;
+    transform: rotate(180deg);
+    border-radius: 5px 0 0 5px;
   }
 </style>
