@@ -1,9 +1,11 @@
 <script>
   import Sidebar from "./components/Sidebar.svelte";
   import { onMount } from "svelte";
-  import Router from "svelte-spa-router";
+  import Router, { link } from "svelte-spa-router";
   import { routes } from "./routes";
   import { SidebarStore } from "./stores";
+  import Home from "./pages/Home.svelte";
+  import Auth from "./pages/Auth.svelte";
 
   let location;
   onMount(() => {
@@ -16,7 +18,7 @@
     <Sidebar />
   {/if}
   <section class={`main ${$SidebarStore.isOpen && "open"}`}>
-    <a href="/dashboard">Next</a>
+    <a href="/dashboard" use:link>Next</a>
     <Router {routes} />
   </section>
 </main>
