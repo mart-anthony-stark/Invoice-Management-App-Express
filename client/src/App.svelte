@@ -1,19 +1,22 @@
 <script>
   import Sidebar from "./components/Sidebar.svelte";
   import { onMount } from "svelte";
-  import Router, { link } from "svelte-spa-router";
+  import Router from "svelte-spa-router";
   import { routes } from "./routes";
   import { SidebarStore } from "./stores";
 
+  let location;
   onMount(() => {
-    console.log("Hello");
+    location = window.location.pathname;
   });
 </script>
 
 <main>
-  <Sidebar />
+  {#if location !== "/auth"}
+    <Sidebar />
+  {/if}
   <section class={`main ${$SidebarStore.isOpen && "open"}`}>
-    <a href="/dashboard" use:link>Next</a>
+    <a href="/dashboard">Next</a>
     <Router {routes} />
   </section>
 </main>
