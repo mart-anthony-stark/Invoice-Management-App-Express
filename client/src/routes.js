@@ -5,7 +5,6 @@ const routes = {
   "/": Home,
   "/dashboard": Home,
   "/auth": Auth,
-  "/*": Home,
 };
 
 export { routes };
